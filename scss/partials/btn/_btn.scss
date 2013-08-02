@@ -1,0 +1,157 @@
+// ==========================================================================
+// Button elements
+// ==========================================================================
+
+// Variables - Only used within this file and includes within this file
+// ==========================================================================
+$btn-color: #fff;
+$btn-background-color: $primary-purple;
+$btn-background-color-hover: #8c61cb;
+
+// Styling
+// ==========================================================================
+.btn {
+	background-color: $btn-background-color;
+	border: none;
+	@include box-sizing(border-box);
+	cursor: pointer;
+	display: inline-block;
+	color: $btn-color;
+	font-family: $base-font-family;
+	font-weight: bold;
+	height: 30px;
+	line-height: 32px; // Extra 2px fixes slight off-center due to browser inconsistencies
+	padding: 0 13px;
+	text-decoration: none;
+	text-transform: uppercase;
+	vertical-align: top;
+
+	&:hover {
+		background-color: $btn-background-color-hover;
+		color: #fff;
+		text-decoration: none;
+	}
+
+	i {
+		vertical-align: middle;
+
+		&.i--indent {
+			margin-left: 5px;
+		}
+
+		&.i--top-nudge {
+			margin-top: -1px;
+		}
+	}
+}
+
+.text-btn {
+	cursor: pointer;
+	border-bottom: 1px solid #989898;
+	color: #989898;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+
+	&:hover {
+		border-bottom-color: transparent;
+	}
+}
+
+.btn-group {
+	position: relative;
+}
+
+.btn-group--append {
+	margin-left: 10px;
+}
+
+.btn--icon {
+	background: none;
+
+	&:hover {
+		background: none;
+	}
+}
+
+.btn--icon-strip {
+	padding: 0;
+}
+
+.btn--darker.is-active {
+	background-color: $btn-background-color;
+
+	&:hover {
+		background-color: $btn-background-color;
+	}
+}
+
+.btn--lighter {
+	background-color: #999;
+
+	&:hover {
+		background-color: #9f9f9f;
+	}
+}
+
+.btn--disabled,
+.btn--disabled:hover {
+	background-color: #999;
+	color: #bbb;
+	cursor: default;
+}
+
+.btn--small {
+	height: 23px;
+	font-size: 12px;
+	line-height: 25px; // Extra 2px fixes slight off-center due to browser inconsistencies
+	padding-left: 8px;
+	padding-right: 8px;
+	
+}
+
+.btn--small-text {
+	font-size: 12px;
+}
+
+.btn--smaller-text {
+	font-size: 10px;
+}
+
+.btn--vsmall {
+	height: 15px;
+	font-size: 10px;
+	line-height: 17px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.btn--large {
+	height: 36px;
+	line-height: 36px;
+}
+
+.btn--darker {
+	background-color: #646567;
+
+	&:hover {
+		background-color: #777;
+	}
+}
+
+.btn--light-prim {
+	background: #8051c5;
+}
+
+.btn--append {
+	border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn--square {
+	height: 35px;
+	padding: 0;
+	text-align: center;
+	width: 40px;
+}
+
+@import "btn-icon";

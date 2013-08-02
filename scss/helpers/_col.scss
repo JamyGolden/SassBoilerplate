@@ -1,0 +1,25 @@
+.col2 {
+	& > .cell {
+		float: left;
+		width: 48%;
+		margin-left: 4%;
+		overflow: hidden;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}
+
+.col3 {
+	& > .cell {
+		float: left;
+		width: 33%;
+		margin-left: 4%;
+		overflow: hidden;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}

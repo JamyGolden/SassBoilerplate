@@ -1,0 +1,25 @@
+// ==========================================================================
+// Config File
+// The variable used throughout the site will be defined here
+// This .scss file must be imported before all other .scss files
+// ==========================================================================
+
+// Font styles
+// ==========================================================================
+$base-font-family: unquote("rambla"), unquote("sans-serif");
+$base-font-size: 14px;
+$base-line-height: 1.231;
+$primary-purple: #4f2d7f;
+$font-color: #111;
+$dark-font-color: #cdcdcd;
+$dark-heading-color: #fff;
+
+// Background colours
+// ==========================================================================
+$dark-background-color: #333;
+
+// Links 
+// ==========================================================================
+$link-color: $primary-purple;
+$link-visited-color: $primary-purple;
+$link-hover-color: $primary-purple;

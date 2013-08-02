@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'Rambla';
+	font-weight: normal;
+	font-style: normal;
+	src: url('../assets/font/Rambla-Regular.eot'), 
+	     url('../assets/font/Rambla-Regular.eot?#iefix') format('embedded-opentype'), 
+	     url('../assets/font/Rambla-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Rambla';
+	font-weight: bold;
+	font-style: normal;
+	src: url('../assets/font/Rambla-Bold.eot'), 
+	     url('../assets/font/Rambla-Bold.eot?#iefix') format('embedded-opentype'), 
+	     url('../assets/font/Rambla-Bold.svg') format('svg'), 
+	     url('../assets/font/Rambla-Bold.woff') format('woff'), 
+	     url('../assets/font/Rambla-Bold.otf') format('opentype');
+}

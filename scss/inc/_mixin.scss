@@ -1,0 +1,5 @@
+@mixin all-icon-sprite-properties($image){
+	@include icon-sprite($image);
+	height: icon-sprite-height($image);
+	width: icon-sprite-width($image);
+}
