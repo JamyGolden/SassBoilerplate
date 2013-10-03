@@ -14,12 +14,6 @@
 	width: 930px;
 }
 
-// Content wrap
-// ==========================================================================
-.content-wrap {
-	padding: 20px;
-}
-
-.content-wrap--small {
-	padding: 10px;
-}
+@import "grid-lg";
+@import "grid-md";
+@import "grid-sm";

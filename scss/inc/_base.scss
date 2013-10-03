@@ -15,13 +15,13 @@ select {
 
 // Custom highlight styling
 ::-moz-selection {
-	background: $primary-purple;
+	background: $primary-color;
 	color: white;
 	text-shadow: none;
 }
 
 ::selection {
-	background: $primary-purple;
+	background: $primary-color;
 	color: white;
 	text-shadow: none;
 }

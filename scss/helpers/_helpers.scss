@@ -1,29 +1,31 @@
 .divider {
-	background-color: #151515;
+	background-color: $primary-color;
 	border: none;
-	border-top: 1px solid #000;
 	height: 1px;
-	margin: 8px 0;
+	margin: 10px 0;
 	padding: 0;
 	width: 100%;
-}
-
-.divider--light {
-	background-color: #3d3d3d;
-	border-top: #3d3d3d;
-}
-
-.l-left {
-	float: left;
 }
 
 .l-right {
 	float: right;
 }
 
+.wrap {
+	padding: 20px;
+}
+
+.wrap--small {
+	padding: 10px;
+}
+
+.wrap--large {
+	padding: 30px;
+}
+
 .row {
-	margin-top: 18px;
-	margin-bottom: 18px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .row--small {
@@ -34,6 +36,11 @@
 .row--vsmall {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.row--large {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .muted {
@@ -48,6 +55,38 @@
 	visibility: hidden;
 }
 
-@import "layout";
-@import "grid";
-@import "col";
+.o-90 {
+	@include opacity(90);
+}
+
+.o-80 {
+	@include opacity(80);
+}
+
+.o-70 {
+	@include opacity(70);
+}
+
+.o-60 {
+	@include opacity(60);
+}
+
+.o-50 {
+	@include opacity(50);
+}
+
+.o-40 {
+	@include opacity(40);
+}
+
+.o-30 {
+	@include opacity(30);
+}
+
+.o-20 {
+	@include opacity(20);
+}
+
+.o-10 {
+	@include opacity(10);
+}

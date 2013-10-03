@@ -15,33 +15,25 @@
 // Config file contains Sass variables
 @import "inc/config";
 
+// Base styles
+// ==========================================================================
 @import "inc/font";
-@import "inc/normalize";
 @import "inc/sprite";
 @import "inc/base";
+@import "helpers/layout";
 
+// CSS related to plugins
+// ==========================================================================
+@import "vendor/normalize";
 
 // General components
 // ==========================================================================
-@import "partials/btn/btn";
-
-// Custom scrollbar
-@import "partials/scrollbar/scrollbar";
-
-// Includes various nav components
-@import "partials/nav/nav";
-
-@import "partials/header/header";
-@import "partials/profile/profile";
-@import "partials/modal/modal";
-@import "partials/overlay/overlay";
-@import "partials/footer/footer";
-@import "partials/graph/graph";
-@import "partials/message-system/message-system";
+@import "components/btn/btn";
 
 // Helpers
 // ==========================================================================
 @import "helpers/helpers";
+@import "vendor/h5bp/h5bp-helpers";
 
 // General print stylesheet - Comes last
 @import "inc/print";

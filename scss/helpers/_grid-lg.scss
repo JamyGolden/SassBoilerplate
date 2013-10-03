@@ -1,0 +1,141 @@
+$padding: 10px;
+
+.grid-lg {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: $padding;
+	padding-right: $padding;
+
+	@media only screen and (min-width: $bp-tablet-width) {
+		padding-left: $padding;
+		padding-right: $padding;
+	}
+
+	@media only screen and (min-width: $bp-desktop-width) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	// Clearfix
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+	.grid-lg__row {
+		margin-left: -$padding;
+		margin-right: -$padding;
+		margin-top: $padding;
+		margin-bottom: $padding;
+
+		@media only screen and (min-width: $bp-tablet-width) {
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: $padding * 2;
+			margin-bottom: $padding * 2;
+		}
+
+		@media only screen and (min-width: $bp-desktop-width) {
+			margin-left: -$padding;
+			margin-right: -$padding;
+		}
+	}
+
+		.grid-lg__cell {
+			@include box-sizing(border-box);
+			float: left;
+			padding-left: $padding;
+			padding-right: $padding;
+
+			margin-top: $padding; //temp
+			margin-bottom: $padding; //temp
+
+			position: relative;
+			z-index: 0;
+
+			@media only screen and (min-width: $bp-tablet-width) {
+				margin-top: $padding;
+				margin-bottom: $padding;
+
+				padding-left: $padding;
+				padding-right: $padding;
+			}
+
+			@media only screen and (min-width: $bp-desktop-width) {
+				padding-left: $padding;
+				padding-right: $padding;
+			}
+		}
+
+	// 3 Col for large browsers
+	.grid-lg--3col {
+		.grid-lg__cell {
+			width: 100%;
+
+			@media only screen and (min-width: $bp-tablet-width) {
+				width: 50%;
+			}
+
+			@media only screen and (min-width: $bp-desktop-width) {
+				width: 33.33333333333333%;
+
+				// Reset row force
+				// &:nth-child(2n+1) {
+				// 	clear: none;
+				// }
+			}
+		}
+
+		.grid-lg__cell--2col {
+			@media only screen and (min-width: $bp-tablet-width) {
+				width: 100%;
+			}
+
+			@media only screen and (min-width: $bp-desktop-width) {
+				width: 66.66666666666667%;
+			}
+		}
+	}
+
+	// 4 Col for large browsers
+	.grid-lg--4col {
+		.grid-lg__cell {
+			width: 50%;
+
+			@media only screen and (min-width: $bp-tablet-width) {
+				width: 33.33333333333333%;
+			}
+
+			@media only screen and (min-width: $bp-desktop-width) {
+				width: 25%;
+			}
+		}
+
+		.grid-lg__cell--2col {
+			width: 100%;
+
+			@media only screen and (min-width: $bp-tablet-width) {
+				width: 66.66666666666666%;
+			}
+
+			@media only screen and (min-width: $bp-desktop-width) {
+				width: 50%;
+			}
+		}
+	}
+
+	.grid-lg__row--no-margin {
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-left: -($padding * 2);
+		margin-right: -($padding * 2);
+		
+		@media only screen and (min-width: $bp-desktop-width) {
+			margin-left: -$padding;
+			margin-right: -$padding;
+		}
+	}

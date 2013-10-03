@@ -6,10 +6,10 @@
 
 // Font styles
 // ==========================================================================
-$base-font-family: unquote("rambla"), unquote("sans-serif");
+$base-font-family: unquote("sans-serif");
 $base-font-size: 14px;
-$base-line-height: 1.231;
-$primary-purple: #4f2d7f;
+$base-line-height: 1.4;
+$primary-color: #4f2d7f;
 $font-color: #111;
 $dark-font-color: #cdcdcd;
 $dark-heading-color: #fff;
@@ -20,6 +20,12 @@ $dark-background-color: #333;
 
 // Links 
 // ==========================================================================
-$link-color: $primary-purple;
-$link-visited-color: $primary-purple;
-$link-hover-color: $primary-purple;
+$link-color: $primary-color;
+$link-visited-color: $primary-color;
+$link-hover-color: $primary-color;
+
+// Breakpoints
+// ==========================================================================
+$bp-mobile-width: 480px;
+$bp-tablet-width: 768px;
+$bp-desktop-width: 980px;
