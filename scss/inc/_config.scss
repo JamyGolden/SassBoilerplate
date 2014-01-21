@@ -18,7 +18,7 @@ $dark-heading-color: #fff;
 // ==========================================================================
 $dark-background-color: #333;
 
-// Links 
+// Links
 // ==========================================================================
 $link-color: $primary-color;
 $link-visited-color: $primary-color;
@@ -29,3 +29,9 @@ $link-hover-color: $primary-color;
 $bp-mobile-width: 480px;
 $bp-tablet-width: 768px;
 $bp-desktop-width: 980px;
+
+// Breakpoints
+// ==========================================================================
+$bp-sm: 768px;
+$bp-md: 992px;
+$bp-lg: 1030px;
