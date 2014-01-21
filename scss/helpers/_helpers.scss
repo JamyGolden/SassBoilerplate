@@ -7,6 +7,10 @@
 	width: 100%;
 }
 
+.l-left {
+	float: left;
+}
+
 .l-right {
 	float: right;
 }
@@ -48,7 +52,7 @@
 }
 
 .is-hidden {
-	display: none !important; 
+	display: none !important;
 }
 
 .is-invisible {
@@ -89,4 +93,60 @@
 
 .o-10 {
 	@include opacity(10);
+}
+
+.for-sm {
+    display: block;
+
+    @include bp($bp-md) {
+        display: none;
+    }
+}
+
+.for-not-sm {
+    display: none;
+
+    @include bp($bp-md) {
+        display: block;
+    }
+}
+
+.for-md {
+    display: none;
+
+    @include bp($bp-md) {
+        display: block;
+    }
+
+    @include bp($bp-lg) {
+        display: none;
+    }
+}
+
+.for-not-md {
+    display: block;
+
+    @include bp($bp-md) {
+        display: none;
+    }
+
+    @include bp($bp-lg) {
+        display: block;
+    }
+}
+
+.for-lg {
+    display: none;
+
+    @include bp($bp-lg) {
+        display: block;
+    }
+}
+
+.for-not-lg {
+    display: block;
+
+    @include bp($bp-lg) {
+        display: none;
+    }
 }

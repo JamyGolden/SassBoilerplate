@@ -15,16 +15,17 @@
 // Config file contains Sass variables
 @import "inc/config";
 
+// CSS related to plugins
+// ==========================================================================
+@import "vendor/normalize";
+
 // Base styles
 // ==========================================================================
 @import "inc/font";
 @import "inc/sprite";
 @import "inc/base";
+@import "helpers/grid/grid";
 @import "helpers/layout";
-
-// CSS related to plugins
-// ==========================================================================
-@import "vendor/normalize";
 
 // General components
 // ==========================================================================

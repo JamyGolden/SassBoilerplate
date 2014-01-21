@@ -1,0 +1,18 @@
+// ==========================================================================
+// General container file
+// ==========================================================================
+
+// Grid clearfix
+.grid-cf {
+    &:before, &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@import "grid-lg";
+@import "grid-md";
+@import "grid-sm";

@@ -1,0 +1,51 @@
+// ==========================================================================
+// Small Grid
+// ==========================================================================
+
+$gutter: 10px;
+$grid-column-total: 12;
+
+.grid-sm {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    clear: both;
+
+    @extend .grid-cf;
+}
+
+    .grid-sm__container {
+        padding: 0 $gutter;
+    }
+
+    .grid-sm__row {
+        margin-left: -$gutter;
+        margin-right: -$gutter;
+
+        @extend .grid-cf;
+    }
+
+        .grid-sm__cell {
+            @include box-sizing(border-box);
+            float: left;
+            padding-left: $gutter;
+            padding-right: $gutter;
+            margin-top: $gutter;
+            margin-bottom: $gutter;
+        }
+
+        @for $i from 2 through $grid-column-total {
+            $grid-columns: $i;
+
+            .grid-sm--#{$i}col {
+                .grid-sm__cell {
+                    width: 100% / $grid-columns;
+                }
+
+                @for $i from 2 through $grid-columns {
+                    .grid-sm__cell--#{$i}col {
+                        width: grid-cell-width($grid-columns, $i);
+                    }
+                }
+            }
+        } // @for
