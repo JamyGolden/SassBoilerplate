@@ -11,27 +11,16 @@ $base-font-size: 14px;
 $base-line-height: 1.4;
 $primary-color: #4f2d7f;
 $font-color: #111;
-$dark-font-color: #cdcdcd;
-$dark-heading-color: #fff;
-
-// Background colours
-// ==========================================================================
-$dark-background-color: #333;
 
 // Links
 // ==========================================================================
 $link-color: $primary-color;
-$link-visited-color: $primary-color;
 $link-hover-color: $primary-color;
 
 // Breakpoints
 // ==========================================================================
-$bp-mobile-width: 480px;
-$bp-tablet-width: 768px;
-$bp-desktop-width: 980px;
 
-// Breakpoints
-// ==========================================================================
+$bp-xs: 0;
 $bp-sm: 768px;
 $bp-md: 992px;
 $bp-lg: 1030px;

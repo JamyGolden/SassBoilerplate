@@ -1,141 +1,115 @@
-$padding: 10px;
+// ==========================================================================
+// Large Grid
+// ==========================================================================
 
-.grid-lg {
-	margin-right: auto;
-	margin-left: auto;
-	padding-left: $padding;
-	padding-right: $padding;
+$lg-gutter: 10px; // Grid padding or gutter
+$md-gutter: $lg-gutter; // Allows for thinner SM gutter
+$sm-gutter: $lg-gutter; // Allows for thinner SM gutter
+$xs-gutter: $lg-gutter; // Allows for thinner XS gutter
+$vertical-gutter: true; // Allow a top/bottom gutter
+$gd-column-total: 12; // Total number columns available
 
-	@media only screen and (min-width: $bp-tablet-width) {
-		padding-left: $padding;
-		padding-right: $padding;
+.gd-lg {
+	@extend .gd-cf;
+	padding: 0 $xs-gutter;
+
+	@include bp(sm) {
+		padding: 0 $sm-gutter;
 	}
 
-	@media only screen and (min-width: $bp-desktop-width) {
-		padding-left: 0;
-		padding-right: 0;
+	@include bp(md) {
+		padding: 0 $md-gutter;
 	}
 
-	// Clearfix
-	&:before, &:after {
-		content: " ";
-		display: table;
+	@include bp(md) {
+		padding: 0 $lg-gutter;
 	}
-	&:after {
-		clear: both;
+
+	.gd-row {
+		@extend .gd-cf;
+		margin-left: -$xs-gutter;
+		margin-right: -$xs-gutter;
+
+		@include bp(sm) {
+			margin-left: -$sm-gutter;
+			margin-right: -$sm-gutter;
+		}
+
+		@include bp(md) {
+			margin-left: -$md-gutter;
+			margin-right: -$md-gutter;
+		}
+
+		@include bp(lg) {
+			margin-left: -$lg-gutter;
+			margin-right: -$lg-gutter;
+		}
+
+		& > .gd-cell {
+			@include box-sizing(border-box);
+			float: left;
+			padding-left: $xs-gutter;
+			padding-right: $xs-gutter;
+
+			@if $vertical-gutter == true {
+				margin-top: $xs-gutter;
+				margin-bottom: $xs-gutter;
+			}
+
+			@include bp(sm) {
+				padding-left: $sm-gutter;
+				padding-right: $sm-gutter;
+
+				@if $vertical-gutter == true {
+					margin-top: $sm-gutter;
+					margin-bottom: $sm-gutter;
+				}
+			}
+
+			@include bp(md) {
+				padding-left: $md-gutter;
+				padding-right: $md-gutter;
+
+				@if $vertical-gutter == true {
+					margin-top: $md-gutter;
+					margin-bottom: $md-gutter;
+				}
+			}
+
+			@include bp(lg) {
+				padding-left: $lg-gutter;
+				padding-right: $lg-gutter;
+
+				@if $vertical-gutter == true {
+					margin-top: $lg-gutter;
+					margin-bottom: $lg-gutter;
+				}
+			}
+		}
 	}
 }
 
-	.grid-lg__row {
-		margin-left: -$padding;
-		margin-right: -$padding;
-		margin-top: $padding;
-		margin-bottom: $padding;
 
-		@media only screen and (min-width: $bp-tablet-width) {
-			margin-left: 0;
-			margin-right: 0;
-			margin-top: $padding * 2;
-			margin-bottom: $padding * 2;
-		}
+	@for $i from 2 through $gd-column-total {
+		$gd-columns: $i;
 
-		@media only screen and (min-width: $bp-desktop-width) {
-			margin-left: -$padding;
-			margin-right: -$padding;
-		}
-	}
-
-		.grid-lg__cell {
-			@include box-sizing(border-box);
-			float: left;
-			padding-left: $padding;
-			padding-right: $padding;
-
-			margin-top: $padding; //temp
-			margin-bottom: $padding; //temp
-
-			position: relative;
-			z-index: 0;
-
-			@media only screen and (min-width: $bp-tablet-width) {
-				margin-top: $padding;
-				margin-bottom: $padding;
-
-				padding-left: $padding;
-				padding-right: $padding;
-			}
-
-			@media only screen and (min-width: $bp-desktop-width) {
-				padding-left: $padding;
-				padding-right: $padding;
-			}
-		}
-
-	// 3 Col for large browsers
-	.grid-lg--3col {
-		.grid-lg__cell {
-			width: 100%;
-
-			@media only screen and (min-width: $bp-tablet-width) {
-				width: 50%;
-			}
-
-			@media only screen and (min-width: $bp-desktop-width) {
-				width: 33.33333333333333%;
-
-				// Reset row force
-				// &:nth-child(2n+1) {
-				// 	clear: none;
-				// }
-			}
-		}
-
-		.grid-lg__cell--2col {
-			@media only screen and (min-width: $bp-tablet-width) {
+		.gd-lg--#{$i}col {
+			& > .gd-row > .gd-cell {
 				width: 100%;
+
+				@include bp(lg) {
+					width: 100% / $gd-columns;
+				}
 			}
 
-			@media only screen and (min-width: $bp-desktop-width) {
-				width: 66.66666666666667%;
-			}
-		}
-	}
+			@for $i from 2 through $gd-columns {
+				& > .gd-row > .gd-cell--#{$i}col {
+					width: 100%;
 
-	// 4 Col for large browsers
-	.grid-lg--4col {
-		.grid-lg__cell {
-			width: 50%;
-
-			@media only screen and (min-width: $bp-tablet-width) {
-				width: 33.33333333333333%;
-			}
-
-			@media only screen and (min-width: $bp-desktop-width) {
-				width: 25%;
+					@include bp(lg) {
+						width: grid-cell-width($gd-columns, $i);
+					}
+				}
 			}
 		}
-
-		.grid-lg__cell--2col {
-			width: 100%;
-
-			@media only screen and (min-width: $bp-tablet-width) {
-				width: 66.66666666666666%;
-			}
-
-			@media only screen and (min-width: $bp-desktop-width) {
-				width: 50%;
-			}
-		}
-	}
-
-	.grid-lg__row--no-margin {
-		margin-top: 0;
-		margin-bottom: 0;
-		margin-left: -($padding * 2);
-		margin-right: -($padding * 2);
-		
-		@media only screen and (min-width: $bp-desktop-width) {
-			margin-left: -$padding;
-			margin-right: -$padding;
-		}
-	}
+	} // @for

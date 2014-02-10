@@ -1,0 +1,48 @@
+// ==========================================================================
+// Small Grid
+// ==========================================================================
+
+$xs-gutter: 10px; // Grid padding or gutter
+$vertical-gutter: true; // Allow a top/bottom gutter
+$gd-column-total: 12; // Total number columns available
+
+.gd-xs {
+    @extend .gd-cf;
+    padding: 0 $xs-gutter;
+
+    & > .gd-row {
+        @extend .gd-cf;
+        margin-left: -$xs-gutter;
+        margin-right: -$xs-gutter;
+
+        & > .gd-cell {
+            @include box-sizing(border-box);
+            float: left;
+            padding-left: $xs-gutter;
+            padding-right: $xs-gutter;
+
+            @if $vertical-gutter == true {
+                margin-top: $xs-gutter;
+                margin-bottom: $xs-gutter;
+            }
+        }
+
+    }
+}
+
+
+    @for $i from 2 through $gd-column-total {
+        $gd-columns: $i;
+
+        .gd-xs--#{$i}col {
+            & > .gd-row > .gd-cell {
+                width: 100% / $gd-columns;
+            }
+
+            @for $i from 2 through $gd-columns {
+                & > .gd-row > .gd-cell--#{$i}col {
+                    width: grid-cell-width($gd-columns, $i);
+                }
+            }
+        }
+    } // @for

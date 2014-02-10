@@ -2,50 +2,74 @@
 // Small Grid
 // ==========================================================================
 
-$gutter: 10px;
-$grid-column-total: 12;
+$sm-gutter: 10px; // Grid padding or gutter
+$xs-gutter: $sm-gutter; // Allows for thinner XS gutter
+$vertical-gutter: true; // Allow a top/bottom gutter
+$gd-column-total: 12; // Total number columns available
 
-.grid-sm {
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    clear: both;
+.gd-sm {
+	@extend .gd-cf;
+	padding: 0 $xs-gutter;
 
-    @extend .grid-cf;
+	@include bp(sm) {
+		padding: 0 $sm-gutter;
+	}
+
+	.gd-row {
+		@extend .gd-cf;
+		margin-left: -$xs-gutter;
+		margin-right: -$xs-gutter;
+
+		@include bp(sm) {
+			margin-left: -$sm-gutter;
+			margin-right: -$sm-gutter;
+		}
+
+		& > .gd-cell {
+			@include box-sizing(border-box);
+			float: left;
+			padding-left: $xs-gutter;
+			padding-right: $xs-gutter;
+
+			@if $vertical-gutter == true {
+				margin-top: $xs-gutter;
+				margin-bottom: $xs-gutter;
+			}
+
+			@include bp(sm) {
+				padding-left: $sm-gutter;
+				padding-right: $sm-gutter;
+
+				@if $vertical-gutter == true {
+					margin-top: $sm-gutter;
+					margin-bottom: $sm-gutter;
+				}
+			}
+		}
+	}
 }
 
-    .grid-sm__container {
-        padding: 0 $gutter;
-    }
 
-    .grid-sm__row {
-        margin-left: -$gutter;
-        margin-right: -$gutter;
+	@for $i from 2 through $gd-column-total {
+		$gd-columns: $i;
 
-        @extend .grid-cf;
-    }
+		.gd-sm--#{$i}col {
+			& > .gd-row > .gd-cell {
+				width: 100%;
 
-        .grid-sm__cell {
-            @include box-sizing(border-box);
-            float: left;
-            padding-left: $gutter;
-            padding-right: $gutter;
-            margin-top: $gutter;
-            margin-bottom: $gutter;
-        }
+				@include bp(sm) {
+					width: 100% / $gd-columns;
+				}
+			}
 
-        @for $i from 2 through $grid-column-total {
-            $grid-columns: $i;
+			@for $i from 2 through $gd-columns {
+				& > .gd-row > .gd-cell--#{$i}col {
+					width: 100%;
 
-            .grid-sm--#{$i}col {
-                .grid-sm__cell {
-                    width: 100% / $grid-columns;
-                }
-
-                @for $i from 2 through $grid-columns {
-                    .grid-sm__cell--#{$i}col {
-                        width: grid-cell-width($grid-columns, $i);
-                    }
-                }
-            }
-        } // @for
+					@include bp(sm) {
+						width: grid-cell-width($gd-columns, $i);
+					}
+				}
+			}
+		}
+	} // @for
