@@ -1,10 +1,10 @@
 // ==========================================================================
 // Main Sass file
 // ==========================================================================
-
-// First import things like compass mixins and includes
-// ==========================================================================
 @charset "UTF-8";
+
+// Important initial items such as imports, config and functions/mixins
+// ==========================================================================
 
 // Compass mixins
 @import "compass/css3";
@@ -22,8 +22,8 @@
 // Base styles
 // ==========================================================================
 @import "inc/font";
-@import "inc/sprite";
 @import "inc/base";
+@import "inc/sprite";
 
 // General components
 // ==========================================================================
