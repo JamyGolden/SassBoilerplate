@@ -4,12 +4,27 @@
 
 // Container
 // ==========================================================================
-.container {
+.l-container {
 	margin: 0 auto;
-	width: 1024px;
 	position: relative;
+
+	@include bp(sm) {
+		width: $bp-sm;
+	}
+
+	@include bp(md) {
+		width: $bp-md;
+	}
+
+	@include bp(lg) {
+		width: $bp-lg;
+	}
 }
 
-.container--app {
-	width: 930px;
+.l-left {
+	float: left;
+}
+
+.l-right {
+	float: right;
 }

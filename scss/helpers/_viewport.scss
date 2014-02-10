@@ -1,0 +1,123 @@
+// ==========================================================================
+// Viewport specific classes
+// ==========================================================================
+
+// XS
+// ==========================================================================
+.vp-xs {
+	display: block;
+
+	@include bp(sm) {
+		display: none;
+	}
+}
+
+.vp-only-xs {
+	display: block;
+
+	@include bp(sm) {
+		display: none;
+	}
+}
+
+.vp-not-xs {
+	display: none;
+
+	@include bp(sm) {
+		display: block;
+	}
+}
+
+// SM
+// ==========================================================================
+.vp-sm {
+	display: none;
+
+	@include bp(sm) {
+		display: block;
+	}
+}
+
+.vp-only-sm {
+	display: none;
+
+	@include bp(sm) {
+		display: block;
+	}
+
+	@include bp(md) {
+		display: none;
+	}
+}
+
+.vp-not-sm {
+	display: block;
+
+	@include bp(sm) {
+		display: none;
+	}
+
+	@include bp(md) {
+		display: block;
+	}
+}
+
+// MD
+// ==========================================================================
+.vp-md {
+	display: none;
+
+	@include bp(md) {
+		display: block;
+	}
+}
+
+.vp-only-md {
+	display: none;
+
+	@include bp(md) {
+		display: block;
+	}
+
+	@include bp(lg) {
+		display: none;
+	}
+}
+
+.vp-not-md {
+	display: block;
+
+	@include bp(md) {
+		display: none;
+	}
+
+	@include bp(lg) {
+		display: block;
+	}
+}
+
+// LG
+// ==========================================================================
+.vp-lg {
+	display: none;
+
+	@include bp(lg) {
+		display: block;
+	}
+}
+
+.vp-only-lg {
+	display: none;
+
+	@include bp(lg) {
+		display: block;
+	}
+}
+
+.vp-not-lg {
+	display: block;
+
+	@include bp(lg) {
+		display: none;
+	}
+}

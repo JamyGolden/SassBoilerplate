@@ -9,11 +9,11 @@
 // Compass mixins
 @import "compass/css3";
 
-// Custom mixins
-@import "inc/mixin";
-
 // Config file contains Sass variables
 @import "inc/config";
+
+// Custom mixins
+@import "inc/mixin";
 
 // CSS related to plugins
 // ==========================================================================
@@ -24,12 +24,10 @@
 @import "inc/font";
 @import "inc/sprite";
 @import "inc/base";
-@import "helpers/grid/grid";
-@import "helpers/layout";
 
 // General components
 // ==========================================================================
-@import "components/btn/btn";
+@import "components/example/example";
 
 // Helpers
 // ==========================================================================
