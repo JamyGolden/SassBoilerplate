@@ -2,13 +2,6 @@
 // CSS Helpers
 // ==========================================================================
 
-@import "grid/grid";
-@import "layout/layout";
-@import "layout/row";
-@import "opacity";
-@import "viewport";
-@import "wrap";
-
 .divider {
 	@extend .l-row;
 	background-color: $primary-color;
@@ -25,3 +18,31 @@
 .is-invisible {
 	visibility: hidden;
 }
+
+.cf {
+	&:before,
+	&:after {
+		content: " "; /* 1 */
+		display: table; /* 2 */
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.cf {
+	*zoom: 1;
+}
+
+@import "grid";
+@import "layout/layout";
+@import "layout/row";
+@import "opacity";
+@import "viewport";
+@import "wrap";
