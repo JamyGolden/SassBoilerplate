@@ -3,32 +3,35 @@
 // ==========================================================================
 
  @mixin bp($point) {
-    @if $point == sm {
-        @media (min-width: $bp-sm) {
-            @content;
-        }
-    }
-    @else if $point == md {
-        @media (min-width: $bp-md) {
-            @content;
-        }
-    }
-    @else if $point == lg {
-        @media (min-width: $bp-lg) {
-            @content;
-        }
-    }
-    @else {
-        @media (min-width: $point) {
-            @content;
-        }
-    }
+	@if $point == xs {
+		@content;
+	}
+	@else if $point == sm {
+		@media (min-width: $bp-sm) {
+			@content;
+		}
+	}
+	@else if $point == md {
+		@media (min-width: $bp-md) {
+			@content;
+		}
+	}
+	@else if $point == lg {
+		@media (min-width: $bp-lg) {
+			@content;
+		}
+	}
+	@else {
+		@media (min-width: $point) {
+			@content;
+		}
+	}
 }
 
 // Calculate the perc width of the column
-@function grid-cell-width($cell-total, $cell-count) {
+@function gd-col-width($col-total, $col-count) {
 	// Percentage width per column
-	@return (100 / ($cell-total / $cell-count)) * 1%;
+	@return (100 / ($col-total / $col-count)) * 1%;
 }
 
 // Retina Sprite
