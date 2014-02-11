@@ -56,6 +56,16 @@ $gd-column-total: 12; // Total number columns available
 	}
 }
 
+// Used and styled as primary "class", while the others are seen
+// as modifiers
+@for $columns from 2 through $gd-column-total {
+	[class*="gd-#{$columns}-"] {
+		@include box-sizing(border-box);
+		float: left;
+		width: 100%;
+	}
+}
+
 // Loop
 //
 // Run through the different breakpoint names
@@ -100,13 +110,4 @@ $gd-column-total: 12; // Total number columns available
 		}
 
 	} // @for
-}
-
-// Used and styled as primary "class", while the others are seen
-// as modifiers
-@for $columns from 2 through $gd-column-total {
-	[class*="gd-#{$columns}-"] {
-		@include box-sizing(border-box);
-		float: left;
-	}
 }
