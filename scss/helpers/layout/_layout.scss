@@ -1,9 +1,10 @@
 // ==========================================================================
 // General site layout styles
+//
+// Layout styles prepended with .l for layout. This is also namespaces it
+// to stop library conflicts.
 // ==========================================================================
 
-// Container
-// ==========================================================================
 .l-container {
 	margin: 0 auto;
 	position: relative;

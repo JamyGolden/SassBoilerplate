@@ -2,15 +2,14 @@
 // Wrap helper
 // ==========================================================================
 
-// Config list
+// Config
 // ==========================================================================
-$size-name-list: 'xs', 'sm', 'md', 'lg';
 $size-list: 5px, 10px, 20px, 30px;
 
 // Loop
 // ==========================================================================
-@for $i from 1 through length($size-name-list) {
-	$size-name: nth($size-name-list, $i);
+@for $i from 1 through length($bp-name-list) {
+	$size-name: nth($bp-name-list, $i);
 	$size: nth($size-list, $i);
 
 	.wrap-#{$size-name} {
