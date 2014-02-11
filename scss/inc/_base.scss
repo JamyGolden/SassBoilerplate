@@ -2,8 +2,8 @@
 // Base styles and reset overrides
 // ==========================================================================
 
-body, 
-input, 
+body,
+input,
 textarea {
 	color: $font-color;
 }
@@ -40,10 +40,9 @@ nav ul {
 	padding: 0;
 }
 
-h1, 
+h1,
 h2 {
-	font-family: "rambla", $base-font-family;
-	text-transform: uppercase;
+	font-family: $base-font-family;
 }
 
 h2 {
