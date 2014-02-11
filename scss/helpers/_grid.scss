@@ -1,0 +1,92 @@
+// ==========================================================================
+// Grid file
+//
+// The grid works as follows:
+// .gd-<TOTAL COLUMNS>-<BREAKPOINT NAME>-<COLUMN SPAN>
+//
+// A typical example may look like this:
+// .gd-12-sm-4
+// ==========================================================================
+
+// Config area
+// ==========================================================================
+$lg-gutter: 10px; // Grid padding or gutter
+$md-gutter: 10px; // Allows for thinner MD gutter
+$sm-gutter: 10px; // Allows for thinner SM gutter
+$xs-gutter: 10px; // Allows for thinner XS gutter
+$vertical-gutter: true; // Allow a top/bottom gutter
+$gd-column-total: 12; // Total number columns available
+
+@function gd-gutter($size) {
+	@if $size == xs {
+		@return $xs-gutter;
+	}
+	@else if $size == sm {
+		@return $sm-gutter;
+	}
+	@else if $size == md {
+		@return $md-gutter;
+	}
+	@else if $size == lg {
+		@return $lg-gutter;
+	}
+	@else {
+		@return 0;
+	}
+}
+
+.gd-row {
+	@extend .cf;
+	margin-left: -$xs-gutter;
+	margin-right: -$xs-gutter;
+
+	@include bp(sm) {
+		margin-left: -$sm-gutter;
+		margin-right: -$sm-gutter;
+	}
+
+	@include bp(md) {
+		margin-left: -$md-gutter;
+		margin-right: -$md-gutter;
+	}
+
+	@include bp(lg) {
+		margin-left: -$lg-gutter;
+		margin-right: -$lg-gutter;
+	}
+}
+
+// Loop
+// ==========================================================================
+@for $i from 1 through length($bp-name-list) {
+	$name: nth($bp-name-list, $i);
+
+	@for $columns from 2 through $gd-column-total {
+
+		[class*="gd-#{$columns}-#{$name}"] {
+			@include box-sizing(border-box);
+			float: left;
+		}
+
+		// For each column in total columns
+		@for $col from 1 through $columns {
+
+			.gd-#{$columns}-#{$name}-#{$col} {
+				// XS doesn't get a breakpoint
+				@if $name == 'xs' {
+					width: gd-col-width($columns, $col);
+					padding-left: gd-gutter($name);
+					padding-right: gd-gutter($name);
+				}
+				@else {
+					@include bp($name) {
+						width: gd-col-width($columns, $col);
+						padding-left: gd-gutter($name);
+						padding-right: gd-gutter($name);
+					}
+				}
+			}
+		}
+
+	} // @for
+}
