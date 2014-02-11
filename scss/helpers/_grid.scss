@@ -57,16 +57,15 @@ $gd-column-total: 12; // Total number columns available
 }
 
 // Loop
+//
+// Run through the different breakpoint names
+// Then run through the total columns
+// Then run through each cell in the column
 // ==========================================================================
 @for $i from 1 through length($bp-name-list) {
 	$name: nth($bp-name-list, $i);
 
 	@for $columns from 2 through $gd-column-total {
-
-		[class*="gd-#{$columns}-#{$name}"] {
-			@include box-sizing(border-box);
-			float: left;
-		}
 
 		// For each column in total columns
 		@for $col from 1 through $columns {
@@ -77,16 +76,37 @@ $gd-column-total: 12; // Total number columns available
 					width: gd-col-width($columns, $col);
 					padding-left: gd-gutter($name);
 					padding-right: gd-gutter($name);
+
+						// If vertical gutter is enabled
+					@if $vertical-gutter == true {
+						padding-top: gd-gutter($name)/2;
+						padding-bottom: gd-gutter($name)/2;
+					}
 				}
 				@else {
 					@include bp($name) {
 						width: gd-col-width($columns, $col);
 						padding-left: gd-gutter($name);
 						padding-right: gd-gutter($name);
+
+						// If vertical gutter is enabled
+						@if $vertical-gutter == true {
+							padding-top: gd-gutter($name)/2;
+							padding-bottom: gd-gutter($name)/2;
+						}
 					}
 				}
 			}
 		}
 
 	} // @for
+}
+
+// Used and styled as primary "class", while the others are seen
+// as modifiers
+@for $columns from 2 through $gd-column-total {
+	[class*="gd-#{$columns}-"] {
+		@include box-sizing(border-box);
+		float: left;
+	}
 }
