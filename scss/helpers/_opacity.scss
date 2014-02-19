@@ -5,6 +5,6 @@
 @for $i from 0 through 10 {
 	$opacity: $i * 10;
 	.o-#{$opacity} {
-		@include opacity($opacity);
+		@include opacity($opacity/100);
 	}
 }
