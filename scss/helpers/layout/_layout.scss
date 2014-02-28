@@ -10,15 +10,15 @@
 	position: relative;
 
 	@include bp(sm) {
-		width: $bp-sm;
+		width: 750px;
 	}
 
 	@include bp(md) {
-		width: $bp-md;
+		width: 970px;
 	}
 
 	@include bp(lg) {
-		width: $bp-lg;
+		width: 1170px;
 	}
 }
 
