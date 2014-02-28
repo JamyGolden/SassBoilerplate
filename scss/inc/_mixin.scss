@@ -28,12 +28,6 @@
 	}
 }
 
-// Calculate the perc width of the column
-@function gd-col-width($col-total, $col-count) {
-	// Percentage width per column
-	@return (100 / ($col-total / $col-count)) * 1%;
-}
-
 // Retina Sprite
 // https://gist.github.com/JamyGolden/6448466
 // Mixin that generates both a regular and retina sprite (using the Compass
