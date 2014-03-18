@@ -19,6 +19,12 @@
 // ==========================================================================
 @import "vendor/normalize";
 
+// Helpers
+// ==========================================================================
+@import "helpers/helpers";
+@import "vendor/h5bp-helpers";
+@import "vendor/plusgrid";
+
 // Base styles
 // ==========================================================================
 @import "inc/font";
@@ -28,12 +34,6 @@
 // General components
 // ==========================================================================
 @import "components/example/example";
-
-// Helpers
-// ==========================================================================
-@import "helpers/helpers";
-@import "vendor/h5bp-helpers";
-@import "vendor/plusgrid";
 
 // General print stylesheet - Comes last
 @import "inc/print";
