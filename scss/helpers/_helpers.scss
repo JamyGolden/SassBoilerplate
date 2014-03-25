@@ -22,22 +22,15 @@
 .cf {
 	&:before,
 	&:after {
-		content: " "; /* 1 */
-		display: table; /* 2 */
+		content: " ";
+		display: table;
 	}
 
 	&:after {
 		clear: both;
 	}
-}
 
-/*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-
-.cf {
-	*zoom: 1;
+	*zoom: 1; // IE6 and 7
 }
 
 @import "layout/layout";
