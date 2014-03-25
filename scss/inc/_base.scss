@@ -5,7 +5,7 @@
 body,
 input,
 textarea {
-	color: $font-color;
+	color: $b-color;
 }
 
 select {
@@ -27,12 +27,14 @@ select {
 }
 
 body {
-	font: $base-font-size $base-font-family;
-	line-height: $base-line-height;
+	font-family: $b-font-family;
+	font-size: $b-font-size;
+	line-height: $b-line-height;
 }
 
 figure img {
 	display: block;
+	max-width: 100%;
 }
 
 nav ul {
@@ -40,29 +42,24 @@ nav ul {
 	padding: 0;
 }
 
-h1,
-h2 {
-	font-family: $base-font-family;
-}
-
 h2 {
 	font-size: 24px;
 }
 
-p {
-	em {
-		color: #fff;
-		font-style: normal;
+input,
+textarea,
+select {
+	&:focus {
+		outline-color: $primary-color;
 	}
 }
 
 a {
-	color: $link-color;
-	cursor: pointer;
+	color: $primary-color;
 	text-decoration: none;
 
 	&:hover {
-		color: $link-hover-color;
+		color: $primary-color;
 		text-decoration: underline;
 	}
 }

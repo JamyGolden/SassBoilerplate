@@ -5,17 +5,14 @@
 // ==========================================================================
 
 // Font styles
+//
+// `b-` prefix stands for "Base"
 // ==========================================================================
-$base-font-family: unquote("sans-serif");
-$base-font-size: 14px;
-$base-line-height: 1.4;
+$b-font-family: sans-serif;
+$b-font-size: 14px;
+$b-line-height: 1.4;
+$b-color: #111;
 $primary-color: #4f2d7f;
-$font-color: #111;
-
-// Links
-// ==========================================================================
-$link-color: $primary-color;
-$link-hover-color: $primary-color;
 
 // Breakpoints
 // ==========================================================================
