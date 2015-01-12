@@ -6,30 +6,30 @@
 // ==========================================================================
 
 .l-container {
-	margin: 0 auto;
-	position: relative;
+    margin: 0 auto;
+    position: relative;
 
-	@include bp(sm) {
-		width: 750px;
-	}
+    @include bp(sm) {
+        width: 750px;
+    }
 
-	@include bp(md) {
-		width: 970px;
-	}
+    @include bp(md) {
+        width: 970px;
+    }
 
-	@include bp(lg) {
-		width: 1170px;
-	}
+    @include bp(lg) {
+        width: 1170px;
+    }
 }
 
 .l-left {
-	float: left;
+    float: left;
 }
 
 .l-right {
-	float: right;
+    float: right;
 }
 
 .l-full {
-	width: 100%;
+    width: 100%;
 }
