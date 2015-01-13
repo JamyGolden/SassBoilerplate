@@ -64,45 +64,52 @@
 // @include retina-sprite($main-sprite, $main-srite-retina);
 // ============================================================================
 
-@mixin retina-sprite($sprite-map, $sprite-retina-map) {
-    $folder: sprite-map-name($sprite-map);
+@mixin retina-sprite($sprite-map: null, $sprite-retina-map: null) {
 
-    .#{$folder}-sprite {
-        @include inline-block();
-        text-indent: -9999px;
-    }
+    // Calculate nothing if $sprite-map is left out
+    @if $sprite-map != null {
+        $folder: sprite-map-name($sprite-map);
 
-    .#{$folder} {
-        background-image: sprite-url($sprite-map);
-        background-repeat: no-repeat;
-    }
-
-    // Create classes for main sprites folder
-    @each $img in sprite-names($sprite-map) {
-        .#{$folder}-#{$img} {
-            // Extend the parent class with background properties
-            // This will also extend the retina version
-            @extend .#{$folder};
-
-            background-position: sprite-position($sprite-map, $img);
-            height: image-height(sprite-file($sprite-map, $img));
-            width: image-width(sprite-file($sprite-map, $img));
+        .#{$folder}-sprite {
+            @include inline-block();
+            text-indent: -9999px;
         }
-    }
 
-    @media (min-resolution: 2dppx),
-    (min-device-pixel-ratio: 2),
-    (-o-min-device-pixel-ratio: 2/1),
-    (-webkit-min-device-pixel-ratio: 2) {
         .#{$folder} {
-            background-image: sprite-url($sprite-retina-map);
-            @include background-size(ceil(image-width(sprite-path($sprite-retina-map)) / 2) auto);
+            background-image: sprite-url($sprite-map);
+            background-repeat: no-repeat;
         }
 
-        @each $img in sprite-names($sprite-retina-map) {
+        // Create classes for main sprites folder
+        @each $img in sprite-names($sprite-map) {
             .#{$folder}-#{$img} {
-                $pos: sprite-position($sprite-retina-map, $img);
-                background-position: nth($pos, 1) nth($pos, 2) / 2;
+                // Extend the parent class with background properties
+                // This will also extend the retina version
+                @extend .#{$folder};
+
+                background-position: sprite-position($sprite-map, $img);
+                height: image-height(sprite-file($sprite-map, $img));
+                width: image-width(sprite-file($sprite-map, $img));
+            }
+        }
+    }
+
+    // Calculate nothing if $sprite-retina-map is left out
+    @if $sprite-retina-map != null {
+        @media (min-resolution: 2dppx),
+        (min-device-pixel-ratio: 2),
+        (-o-min-device-pixel-ratio: 2/1),
+        (-webkit-min-device-pixel-ratio: 2) {
+            .#{$folder} {
+                background-image: sprite-url($sprite-retina-map);
+                @include background-size(ceil(image-width(sprite-path($sprite-retina-map)) / 2) auto);
+            }
+
+            @each $img in sprite-names($sprite-retina-map) {
+                .#{$folder}-#{$img} {
+                    $pos: sprite-position($sprite-retina-map, $img);
+                    background-position: nth($pos, 1) nth($pos, 2) / 2;
+                }
             }
         }
     }
