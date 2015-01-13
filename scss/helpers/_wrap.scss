@@ -12,13 +12,13 @@ $size-list: 5px, 10px, 20px, 30px;
     $size-name: nth($bp-name-list, $i);
     $size: nth($size-list, $i);
 
-    .wrap-#{$size-name} {
+    .l-wrap-#{$size-name} {
         padding: $size;
     }
 
     // Default size
     @if $size-name == 'md' {
-        .wrap {
+        .l-wrap {
             padding: $size;
         }
     }
