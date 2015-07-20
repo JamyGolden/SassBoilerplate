@@ -20,6 +20,14 @@
     }
 }
 
+.vp-lt-lg {
+    display: block;
+
+    @include bp(lg) {
+        display: none;
+    }
+}
+
 // MD
 // ============================================================================
 .vp-md {
@@ -54,6 +62,14 @@
     }
 }
 
+.vp-lt-md {
+    display: block;
+
+    @include bp(md) {
+        display: none;
+    }
+}
+
 // SM
 // ============================================================================
 .vp-sm {
@@ -85,6 +101,14 @@
 
     @include bp(md) {
         display: block;
+    }
+}
+
+.vp-lt-sm {
+    display: block;
+
+    @include bp(sm) {
+        display: none;
     }
 }
 
