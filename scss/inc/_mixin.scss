@@ -21,6 +21,14 @@
             @content;
         }
     }
+    @else if $point == retina {
+        @media (min-resolution: 2dppx),
+        (min-device-pixel-ratio: 2),
+        (-o-min-device-pixel-ratio: 2/1),
+        (-webkit-min-device-pixel-ratio: 2) {
+            @content;
+        }
+    }
     @else {
         @media (min-width: $point) {
             @content;
@@ -115,19 +123,26 @@
     }
 }
 
-@mixin retina-sprite-img($sprite-map, $sprite-retina-map, $img) {
-    background-image: sprite-url($sprite-map);
-    background-position: sprite-position($sprite-map, $img);
-    height: image-height(sprite-file($sprite-map, $img));
-    width:  image-width(sprite-file($sprite-map, $img));
+@mixin retina-sprite-img($img: null, $sprite-map: null, $sprite-retina-map: null) {
+    @if $img != null {
+        @if $sprite-map != null {
+            background-image: sprite-url($sprite-map);
+            background-position: sprite-position($sprite-map, $img);
+            height: image-height(sprite-file($sprite-map, $img));
+            width:  image-width(sprite-file($sprite-map, $img));
+        }
 
-    @media (min-resolution: 2dppx),
-    (min-device-pixel-ratio: 2),
-    (-o-min-device-pixel-ratio: 2/1),
-    (-webkit-min-device-pixel-ratio: 2) {
-        background-image: sprite-url($sprite-retina-map);
-        @include background-size(ceil(image-width(sprite-path($sprite-retina-map)) / 2) auto);
-        $pos: sprite-position($sprite-retina-map, $img);
-        background-position: nth($pos, 1) nth($pos, 2) / 2;
+        @if $sprite-retina-map != null {
+            @media (min-resolution: 2dppx),
+            (min-device-pixel-ratio: 2),
+            (-o-min-device-pixel-ratio: 2/1),
+            (-webkit-min-device-pixel-ratio: 2) {
+                background-image: sprite-url($sprite-retina-map);
+                @include background-size(ceil(image-width(sprite-path($sprite-retina-map)) / 2) auto);
+                $pos: sprite-position($sprite-retina-map, $img);
+                background-position: nth($pos, 1) nth($pos, 2) / 2;
+            }
+        }
     }
 }
+
